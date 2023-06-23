@@ -17,8 +17,14 @@ router.get('/:id_order', (req, res, rest) => {
 });
 
 router.post('/', (req, res, rest) => {
+    const order = {
+        id_order: req.body.id_order,
+        quantity_order: req.body.quantity_order
+    };
+
     res.status(201).send({
-        message: 'post an order.'
+        message: 'post an order.',
+        createdOrder: order
     });
 });
 

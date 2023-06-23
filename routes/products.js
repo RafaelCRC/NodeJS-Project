@@ -24,8 +24,14 @@ router.get('/:id_produto', (req, res, rest) => {
 });
 
 router.post('/', (req, res, rest) => {
+    const product = {
+        product_name: req.body.product_name,
+        product_price: req.body.product_price
+    };
+
     res.status(201).send({
-        message: 'Using POST inside products route.'
+        message: 'Using POST inside products route.',
+        createdProduct: product
     });
 });
 
