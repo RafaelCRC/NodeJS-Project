@@ -1,17 +1,10 @@
-console.log("Hello World!")
+const express = require('express')
+const app = express()
 
-// var tests = ["test01", "test02"]
+app.use((req, res, next) => {
+    res.status(200).send({
+        mensagem: 'Ok!'
+    });
+});
 
-// if (tests.includes("test03")){
-//     console.log(tests, typeof(tests))
-// } else if (typeof(tests) == "object"){
-//     console.log(tests[1])
-// }
-
-// for (i = 0; i <= 10; i++) {
-//     console.log(i)
-// }
-
-// for (a in tests) {
-//     console.log(tests[a])
-// }
+module.exports = app;
