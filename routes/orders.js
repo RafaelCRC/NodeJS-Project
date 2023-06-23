@@ -18,7 +18,7 @@ router.get('/:id_order', (req, res, rest) => {
 
 router.post('/', (req, res, rest) => {
     const order = {
-        id_order: req.body.id_order,
+        id_product: req.body.id_product,
         quantity_order: req.body.quantity_order
     };
 

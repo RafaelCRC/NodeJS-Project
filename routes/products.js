@@ -7,8 +7,8 @@ router.get('/', (req, res, rest) => {
     });
 });
 
-router.get('/:id_produto', (req, res, rest) => {
-    const id = req.params.id_produto
+router.get('/:id_product', (req, res, rest) => {
+    const id = req.params.id_product
 
     if (id === 'special') {
         res.status(200).send({
@@ -25,8 +25,8 @@ router.get('/:id_produto', (req, res, rest) => {
 
 router.post('/', (req, res, rest) => {
     const product = {
-        product_name: req.body.product_name,
-        product_price: req.body.product_price
+        name_product: req.body.name_product,
+        price_product: req.body.price_product
     };
 
     res.status(201).send({
