@@ -6,8 +6,14 @@ const mysql = require("../mysql").pool;
 router.get('/', (req, res, next) => {
     mysql.getConnection((error, conn) => {
         if (error) { return res.status(500).send({ error: error })}
-        conn.query(
-            'SELECT * FROM orders',
+        conn.query( `SELECT orders.id_order, 
+                            orders.quantity_order, 
+                            products.id_product, 
+                            products.name_product, 
+                            products.price_product
+                       FROM orders
+                 INNER JOIN products
+                         ON products.id_product = orders.id_product;`,
             (error, result, fields) => {
                 conn.release();
                 if (error) { return res.status(500).send({ error: error })}
@@ -16,8 +22,12 @@ router.get('/', (req, res, next) => {
                     orders: result.map(order => {
                         return {
                             id_order: order.id_order,
-                            id_product: order.id_product,
                             quantity_order: order.quantity_order,
+                            product: {
+                                id_product: order.id_product,
+                                name_product: order.name_product,
+                                price_product: order.price_product
+                            },
                             request: {
                                 type: 'GET',
                                 description: 'Return order details',
