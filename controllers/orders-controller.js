@@ -28,7 +28,7 @@ exports.getOrders = (req, res, next) => {
                             request: {
                                 type: 'GET',
                                 description: 'Return order details',
-                                url: 'http://localhost:3000/orders/' + order.id_order
+                                url: process.env.URL_API + 'orders/' + order.id_order
                             }
                         }
                     })
@@ -63,7 +63,7 @@ exports.getOrder = (req, res, next) => {
                         request: {
                             type: 'GET',
                             description: 'Return all orders',
-                            url: 'http://localhost:3000/orders'
+                            url: process.env.URL_API + 'orders'
                         }
                     }
                 }
@@ -101,7 +101,7 @@ exports.postOrder = (req, res, next) => {
                             request: {
                                 type: 'GET',
                                 description: 'Return all orders',
-                                url: 'http://localhost:3000/orders'
+                                url: process.env.URL_API + 'orders'
                             }
                         }
                     }
@@ -128,7 +128,7 @@ exports.deleteOrder = (req, res, next) => {
                     request: {
                         type: 'POST',
                         description: 'Create an order',
-                        url: 'http://localhost:3000/orders',
+                        url: process.env.URL_API + 'orders',
                         body: {
                             id_product: 'Number',
                             quantity_order: 'Number'

@@ -19,7 +19,7 @@ exports.getProducts = (req, res, next) => {
                             request: {
                                 type: 'GET',
                                 description: 'Return product details',
-                                url: 'http://localhost:3000/products/' + prod.id_product
+                                url: process.env.URL_API + 'products/' + prod.id_product
                             }
                         }
                     })
@@ -55,7 +55,7 @@ exports.getProduct = (req, res, next) => {
                         request: {
                             type: 'GET',
                             description: 'Return all products',
-                            url: 'http://localhost:3000/products'
+                            url: process.env.URL_API + 'products'
                         }
                     }
                 }
@@ -87,7 +87,7 @@ exports.postProduct = (req, res, next) => {
                         request: {
                             type: 'GET',
                             description: 'Return all products',
-                            url: 'http://localhost:3000/products'
+                            url: process.env.URL_API + 'products'
                         }
                     }
                 }
@@ -124,7 +124,7 @@ exports.patchProduct = (req, res, next) => {
                         request: {
                             type: 'GET',
                             description: 'Return product details',
-                            url: 'http://localhost:3000/products/' + req.body.id_product
+                            url: process.env.URL_API + 'products/' + req.body.id_product
                         }
                     }
                 }
@@ -150,7 +150,7 @@ exports.deleteProduct = (req, res, next) => {
                     request: {
                         type: 'POST',
                         description: 'Create a product',
-                        url: 'http://localhost:3000/products',
+                        url: process.env.URL_API + 'products',
                         body: {
                             name_product: 'String',
                             price_product: 'Number'
